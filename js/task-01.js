@@ -16,3 +16,5 @@ function calculateDiscount(years, paymentMethod, returnedOrder) {
   }
   return discount;
 }
+
+console.log(discoutn(5, visa, 3))
