@@ -16,3 +16,4 @@ function calculateDiscount(years, paymentMethod, returnedOrder) {
   }
   return discount;
 }
+console.log(discount);
