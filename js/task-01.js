@@ -1,20 +1,25 @@
+/**
+# Задание 1
 
+В HTML есть список категорий ul#categories. Напиши скрипт, который выполнит следующие операции.
 
-function calculateDiscount(years, paymentMethod, returnedOrder) {
-  let discount = 0;
-  if (years >= 1) {
-    if (returnedOrder) {
-      discount = 0;
-      return discount;
-    }
-    if (paymentMethod === 'MasterCard') {
-      discount = 0.1;
-    }
-    if (getCustomerBirthdayDate() === getCurrentDate()) {
-      discount = 0.5;
-    }
-  }
-  return discount;
-}
+Посчитает и выведет в консоль количество категорий в ul#categories, то есть элементов li.item. Получится 'В списке 3 категории.'.
 
-console.log(discoutn(5, visa, 3))
+Для каждого элемента li.item в списке ul#categories, найдет и выведет в консоль текст заголовка элемента (тега h2) и количество элементов в категории (всех вложенных в него элементов li).
+
+Например для первой категории получится:
+
+Категория: Животные
+Количество элементов: 4
+ */
+
+const categoriesRef = document.querySelectorAll('.item');
+
+// categoriesRef.forEach(elem => (elem.firstElementChild.textContent) {} );
+
+// categoriesRef.forEach(elem => console.log(elem.querySelectorAll('li').length));
+
+categoriesRef.forEach(function (elem) {
+  console.log('Категория:', elem.firstElementChild.textContent);
+  console.log('Количество элементов:', elem.querySelectorAll('li').length);
+});
