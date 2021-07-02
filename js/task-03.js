@@ -8,8 +8,8 @@
 Используй массив объектов images для создания тегов img вложенных в li. Для
 создания разметки используй шаблонные строки и insertAdjacentHTML().
 
-Все элементы галереи должны добавляться в DOM за одну операцию вставки. Добавь
-минимальное оформление галереи флексбоксами или гридами через css-классы.
+Все элементы галереи должны добавляться в DOM за одну операцию вставки. 
+Добавь минимальное оформление галереи флексбоксами или гридами через css-классы.
 */
 
 const images = [
@@ -27,15 +27,43 @@ const images = [
   },
 ];
 
-const gallery = [];
-for (let i = 0; i < images.length; i += 1) {
-  const list = images[i];
-  const imagesGalleryEl = document.createElement('img');
-  imagesGalleryEl.src = 'url';
-  imagesGalleryEl.alt = 'alt';
-  gallery.push(imagesGalleryEl);
+//  <li class = "gallery-item'">
+//    <img src="" alt="">
+//  </li>
 
-  console.log(listGalleryEl);
-  console.log(imagesGalleryEl);
-}
-galleryContainerEl.append(...gallery);
+const itemGalleryEl = document.querySelector('#gallery');
+// зашел немного в тупик как соеденить два элемента
+// const makeImages = items => {
+//   return items.map(item => {
+//     const itemEl = document.createElement('li');
+//     itemEl.classList.add('gallery-item');
+
+//     const itemImageEl = document.createElement('img');
+//     itemImageEl.src = item.url;
+//     itemImageEl.alt = item.alt;
+//     //   return itemEl;
+//     console.log(itemEl, itemImageEl);
+//   });
+// };
+
+// const listRef = makeImages(images);
+// itemGalleryEl.append(...listRef);
+// ========================= version 2 =============================
+
+const makeGalleryImage = images.map(({ url, alt }) => {
+  const itemEl = document.createElement('li');
+  itemEl.classList.add('gallery-item');
+
+  const imageEl = document.createElement('img');
+  imageEl.src = url;
+  imageEl.alt = alt;
+  imageEl.width = 320;
+
+  itemEl.append(imageEl);
+  return itemEl;
+  //   console.log(itemEl);
+});
+// const elements = images.map(makeGalleryImage);
+// console.log(elements);
+itemGalleryEl.append(...makeGalleryImage);
+console.log(itemGalleryEl);
