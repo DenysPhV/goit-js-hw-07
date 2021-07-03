@@ -22,7 +22,7 @@
 // const counterValue = document.querySelector('#value');
 // console.log(counterValue.textContent);
 
-// ====================== 1 ==========================
+// ====================== в группе ==========================
 // const counterRef = document.querySelector('#counter');
 // console.log(counterRef);
 // const counterValue = document.querySelector('#value');
@@ -36,24 +36,29 @@
 //   Number((counterValue.textContent -= btnDecrement.textContent));
 // const decrement = () =>
 //   Number((counterValue.textContent -= btnIncrement.textContent));
+
 // btnDecrement.addEventListener('click', decrement);
 // btnIncrement.addEventListener('click', increment);
 
-// ================= 2 переменная как объект =======================
-const refs = {
-  decrementBtn: document.querySelector('button[data-action=decrement]'),
-  incrementBtn: document.querySelector('button[data-action=increment]'),
-  valueEl: document.querySelector('span#value'),
-};
+// ========================================
 
-let value = 0;
-function decreaseValue() {
-  value -= 1;
-  refs.valueEl.textContent = value;
-}
-function increaseValue() {
-  value += 1;
-  refs.valueEl.textContent = value;
-}
-refs.decrementBtn.addEventListener('click', decreaseValue);
-refs.incrementBtn.addEventListener('click', increaseValue);
+const valueEl = Number(document.querySelector('#value').textContent);
+
+const counterValue = document.querySelector('#value');
+
+const dekBtnMinus = document.querySelector('#counter').firstElementChild;
+const inkBtnPlus = document.querySelector('#counter').lastElementChild;
+
+inkBtnPlus.addEventListener('click', () => {
+  // console.log("Вешаю слушателя события на целевую кнопку");
+  valueEl += 1;
+
+  counterValue.innerText = valueEl;
+});
+
+dekBtnMinus.addEventListener('click', () => {
+  // console.log("Снимаю слушателя события с целевой кнопки");
+  valueEl -= 1;
+
+  counterValue.innerText = valueEl;
+});

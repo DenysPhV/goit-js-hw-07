@@ -14,12 +14,20 @@
  */
 
 const categoriesRef = document.querySelectorAll('.item');
+console.log(`В списке ${categoriesRef.length} категории.`);
 
-// categoriesRef.forEach(elem => (elem.firstElementChild.textContent) {} );
-
-// categoriesRef.forEach(elem => console.log(elem.querySelectorAll('li').length));
-
-categoriesRef.forEach(function (elem) {
+categoriesRef.forEach(elem => {
   console.log('Категория:', elem.firstElementChild.textContent);
   console.log('Количество элементов:', elem.querySelectorAll('li').length);
 });
+// ================================================
+// const categoriesRef = document.querySelectorAll('.item');
+
+// console.log(`В списке ${categoriesRef.length} категории.`);
+
+// const ul = document.querySelectorAll('#categories>li');
+// ul.forEach(elem => {
+//   console.log(
+//     `Категория: ${elem.firstElementChild.textContent}, Количество элементов: ${elem.lastElementChild.children.length}`,
+//   );
+// });

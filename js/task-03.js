@@ -32,38 +32,26 @@ const images = [
 //  </li>
 
 const itemGalleryEl = document.querySelector('#gallery');
-// зашел немного в тупик как соеденить два элемента
-// const makeImages = items => {
-//   return items.map(item => {
-//     const itemEl = document.createElement('li');
-//     itemEl.classList.add('gallery-item');
 
-//     const itemImageEl = document.createElement('img');
-//     itemImageEl.src = item.url;
-//     itemImageEl.alt = item.alt;
-//     //   return itemEl;
-//     console.log(itemEl, itemImageEl);
-//   });
-// };
+// const makeGalleryImage = images.map(({ url, alt }) => {
+//   const itemEl = document.createElement('li');
+//   itemEl.classList.add('gallery-item');
 
-// const listRef = makeImages(images);
-// itemGalleryEl.append(...listRef);
-// ========================= version 2 =============================
+//   const imageEl = document.createElement('img');
+//   imageEl.src = url;
+//   imageEl.alt = alt;
+//   imageEl.width = 320;
 
-const makeGalleryImage = images.map(({ url, alt }) => {
-  const itemEl = document.createElement('li');
-  itemEl.classList.add('gallery-item');
+//   itemEl.append(imageEl);
+//   return itemEl;
+// });
 
-  const imageEl = document.createElement('img');
-  imageEl.src = url;
-  imageEl.alt = alt;
-  imageEl.width = 320;
-
-  itemEl.append(imageEl);
-  return itemEl;
-  //   console.log(itemEl);
+// itemGalleryEl.append(...makeGalleryImage);
+// console.log(itemGalleryEl);
+// ===================================================
+images.forEach(element => {
+  itemGalleryEl.insertAdjacentHTML(
+    'afterbegin',
+    `<li><img src = "${element.url}" alt = "${element.alt}"  width = "320" /></li>`,
+  );
 });
-// const elements = images.map(makeGalleryImage);
-// console.log(elements);
-itemGalleryEl.append(...makeGalleryImage);
-console.log(itemGalleryEl);

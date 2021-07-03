@@ -9,21 +9,38 @@
 
  Для добавления стилей, используй CSS-классы valid и invalid.
 */
-let inputVal = document.getElementById('validation-input');
+// let inputVal = document.getElementById('validation-input');
 
-let totalLenght = inputVal.getAttribute('data-length');
-let intTotallenght = parseInt(totalLenght, 10);
+// let totalLength = inputVal.getAttribute('data-length');
+// let intTotalLength = parseInt(totalLength, 10);
 
-inputVal.oninput = function () {
-  if (inputVal.value.length === intTotallenght) {
-    inputVal.classList.remove('invalid');
-    inputVal.classList.add('valid');
+// inputVal.oninput = function () {
+//   if (inputVal.value.length === intTotalLength) {
+//     inputVal.classList.remove('invalid');
+//     inputVal.classList.add('valid');
+//   }
+//   if (inputVal.value.length === 0) {
+//     inputVal.classList.remove('valid');
+//     inputVal.classList.remove('invalid');
+//   }
+//   if (inputVal.value.length !== intTotalLength && inputVal.value.length !== 0) {
+//     inputVal.classList.add('invalid');
+//   }
+// };
+// ===============================================
+const inputEl = document.querySelector('#validation-input');
+
+const inputLength = inputEl.dataset.length;
+
+const input = document.querySelector('input');
+inputEl.addEventListener('change', element => {
+  const text = element.target.value;
+
+  if (text.length === +inputLength) {
+    inputEl.classList.add('valid');
+    inputEl.classList.remove('invalid');
+  } else {
+    inputEl.classList.remove('valid');
+    inputEl.classList.add('invalid');
   }
-  if (inputVal.value.length === 0) {
-    inputVal.classList.remove('valid');
-    inputVal.classList.remove('invalid');
-  }
-  if (inputVal.value.length !== intTotallenght && inputVal.value.length !== 0) {
-    inputVal.classList.add('invalid');
-  }
-};
+});

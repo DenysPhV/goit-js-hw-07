@@ -39,12 +39,20 @@ for (let i = 0; i < ingredients.length; i += 1) {
   const listItemRef = document.createElement('li');
   listItemRef.textContent = listItem;
   listIngredients.push(listItemRef);
-  //   console.log(listItem);
+
   console.log(listItemRef);
 }
-// listIngredientsContainer.append(...listIngredients);
-// console.log(listIngredients);
 
-// добавил пока один элимент списка в докуметн
 const listRef = document.querySelector('#ingredients');
 listRef.append(...listIngredients);
+// ============================================================
+// const listRef = document.querySelector('#ingredients');
+
+// const listItem = ingredients.reduce(
+//   (str, item) => str + `<li>${item}</li>`,
+//   '',
+// );
+
+// listRef.innerHTML = listItem;
+
+// console.log(listItem);
