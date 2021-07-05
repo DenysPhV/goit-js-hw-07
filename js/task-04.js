@@ -40,25 +40,25 @@
 // btnDecrement.addEventListener('click', decrement);
 // btnIncrement.addEventListener('click', increment);
 
-// ========================================
+// ======================================================================
+let valueEl = Number(document.querySelector('#value').textContent);
 
-const valueEl = Number(document.querySelector('#value').textContent);
+let counterValue = document.querySelector('#value');
 
-const counterValue = document.querySelector('#value');
+const minusBtn = document.querySelector('#counter').firstElementChild;
+const plusBtn = document.querySelector('#counter').lastElementChild;
 
-const dekBtnMinus = document.querySelector('#counter').firstElementChild;
-const inkBtnPlus = document.querySelector('#counter').lastElementChild;
-
-inkBtnPlus.addEventListener('click', () => {
+plusBtn.addEventListener('click', () => {
   // console.log("Вешаю слушателя события на целевую кнопку");
   valueEl += 1;
 
   counterValue.innerText = valueEl;
 });
 
-dekBtnMinus.addEventListener('click', () => {
+minusBtn.addEventListener('click', () => {
   // console.log("Снимаю слушателя события с целевой кнопки");
   valueEl -= 1;
 
   counterValue.innerText = valueEl;
+  // console.log("counterValue", counterValue);
 });
