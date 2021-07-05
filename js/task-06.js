@@ -33,7 +33,7 @@ const inputEl = document.querySelector('#validation-input');
 const inputLength = inputEl.dataset.length;
 
 const input = document.querySelector('input');
-inputEl.addEventListener('change', element => {
+inputEl.addEventListener('blur', element => {
   const text = element.target.value;
 
   if (text.length === +inputLength) {
