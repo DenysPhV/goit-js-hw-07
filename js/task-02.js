@@ -33,27 +33,21 @@ const ingredients = [
 
 // мне нужен цикл создания li
 
-// let listIngredients = [];
-// for (let i = 0; i < ingredients.length; i += 1) {
-//   const listItem = ingredients[i];
-//   const listItemRef = document.createElement('li');
-//   listItemRef.textContent = listItem;
-//   listIngredients.push(listItemRef);
+let listIngredients = [];
+ingredients.forEach(element => {
+  // console.log(element);
 
-//   console.log(listItemRef);
-// }
+  const listItemRef = document.createElement('li');
+  listItemRef.textContent = element;
+  listIngredients.push(listItemRef);
+  // console.log(listItemRef);
 
-// const listRef = document.querySelector('#ingredients');
-// listRef.append(...listIngredients);
-// ============================================================
+  return listIngredients;
+});
+// console.log(listIngredients);
 const listRef = document.querySelector('#ingredients');
+listRef.append(...listIngredients);
+// console.log(listRef);
+// ============================================================
 
-const listItem = ingredients.reduce(
-  (str, item) => str + `<li>${item}</li>`,
-  '',
-);
-
-listRef.innerHTML = listItem;
-
-console.log(listItem);
 // Задание 2 должно быть выполнено с использованием перебирающего метода массива.

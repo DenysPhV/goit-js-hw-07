@@ -32,7 +32,19 @@ const images = [
 //  </li>
 
 const itemGalleryEl = document.querySelector('#gallery');
+console.log(itemGalleryEl);
 
+// ===================================================
+images.map(element => {
+  itemGalleryEl.insertAdjacentHTML(
+    'afterbegin',
+    `<li><img src = "${element.url}" alt = "${element.alt}"  width = "320" /></li>`,
+    `<li><img src = "${element.url}" alt = "${element.alt}"  width = "320" /></li>`,
+    `<li><img src = "${element.url}" alt = "${element.alt}"  width = "320" /></li>`,
+  );
+});
+
+// В задании 3 вы добавляете в разметку по одному ли, а нужно вставить разметку из всех ли за одну операцию.
 // const makeGalleryImage = images.map(({ url, alt }) => {
 //   const itemEl = document.createElement('li');
 //   itemEl.classList.add('gallery-item');
@@ -48,12 +60,3 @@ const itemGalleryEl = document.querySelector('#gallery');
 
 // itemGalleryEl.append(...makeGalleryImage);
 // console.log(itemGalleryEl);
-// ===================================================
-images.forEach(element => {
-  itemGalleryEl.insertAdjacentHTML(
-    'afterbegin',
-    `<li><img src = "${element.url}" alt = "${element.alt}"  width = "320" /></li>`,
-  );
-});
-
-// В задании 3 вы добавляете в разметку по одному ли, а нужно вставить разметку из всех ли за одну операцию.
