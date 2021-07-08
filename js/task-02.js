@@ -9,7 +9,7 @@ ul.ingredients.
 
 Для создания DOM-узлов используй document.createElement().
 */
-// Есть массив строк
+
 const ingredients = [
   'Картошка',
   'Грибы',
@@ -19,35 +19,44 @@ const ingredients = [
   'Приправы',
 ];
 
-// перебираю массив
-// const arrIngredients = ingredients.map(function (ingredient) {
-//   console.log(ingredient);
-// });
+const listRef = document.querySelector('#ingredients');
+// listRef = parent
+const listOfItem = (array, parent) => {
+  const listItemRef = array.map(element => {
+    const listItemRef = document.createElement('li');
+    listItemRef.textContent = element;
+    return listItemRef;
+  });
 
-// создаю элемант списка
+  parent.append(...listItemRef);
+};
+
+listOfItem(ingredients, listRef);
+// =============================================================
+
+// let listIngredients = [];
+// ingredients.forEach(element => {
 // const listItemRef = document.createElement('li');
 
-// вставил текст из массива в один элемент списка
-// console.log((listItemRef.textContent = ingredients[0]));
-// console.log(listItemRef);
+// listItemRef.textContent = element;
+// listIngredients.push(listItemRef);
 
-// мне нужен цикл создания li
+//   return listIngredients;
+// });
 
-let listIngredients = [];
-ingredients.forEach(element => {
-  // console.log(element);
+// const listRef = document.querySelector('#ingredients');
+// listRef.append(...listIngredients);
 
-  const listItemRef = document.createElement('li');
-  listItemRef.textContent = element;
-  listIngredients.push(listItemRef);
-  // console.log(listItemRef);
-
-  return listIngredients;
-});
-// console.log(listIngredients);
-const listRef = document.querySelector('#ingredients');
-listRef.append(...listIngredients);
-// console.log(listRef);
 // ============================================================
 
-// Задание 2 должно быть выполнено с использованием перебирающего метода массива.
+// const listRef = document.querySelector('#ingredients');
+
+// const listIngredients = ingredients.map(element => {
+//   const listItemRef = document.createElement('li');
+
+//   listItemRef.innerHTML = element;
+
+//   listRef.append(listItemRef);
+// });
+
+// =============================================================
