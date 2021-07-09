@@ -39,6 +39,7 @@ const makeStringAtr = images.map(({ url, alt }) => {
   let string = `<li><img class ="gallery__img" src="${url}" alt="${alt}" width = "320"></li>`;
   return string;
 });
+
 itemGalleryEl.insertAdjacentHTML('beforeend', makeStringAtr.join(' '));
 
 // ===================================================
@@ -48,19 +49,3 @@ itemGalleryEl.insertAdjacentHTML('beforeend', makeStringAtr.join(' '));
 //     `<li><img src = "${element.url}" alt = "${element.alt}"  width = "320" /></li>`,
 //   );
 // });
-// ======================================================================
-// const makeGalleryImage = images.map(({ url, alt }) => {
-//   const itemEl = document.createElement('li');
-//   itemEl.classList.add('gallery-item');
-
-//   const imageEl = document.createElement('img');
-//   imageEl.src = url;
-//   imageEl.alt = alt;
-//   imageEl.width = 320;
-
-//   itemEl.append(imageEl);
-//   return itemEl;
-// });
-
-// itemGalleryEl.append(...makeGalleryImage);
-// console.log(itemGalleryEl);
