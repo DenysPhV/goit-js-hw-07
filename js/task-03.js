@@ -30,21 +30,25 @@ const images = [
 //  <li class = "gallery-item'">
 //    <img src="" alt="">
 //  </li>
+// В задании 3 вы добавляете в разметку по одному ли, а нужно вставить разметку из всех ли за одну операцию.
 
 const itemGalleryEl = document.querySelector('#gallery');
-console.log(itemGalleryEl);
+// console.log(itemGalleryEl);
+
+const makeStringAtr = images.map(({ url, alt }) => {
+  let string = `<li><img class ="gallery__img" src="${url}" alt="${alt}" width = "320"></li>`;
+  return string;
+});
+itemGalleryEl.insertAdjacentHTML('beforeend', makeStringAtr.join(' '));
 
 // ===================================================
-images.map(element => {
-  itemGalleryEl.insertAdjacentHTML(
-    'afterbegin',
-    `<li><img src = "${element.url}" alt = "${element.alt}"  width = "320" /></li>`,
-    `<li><img src = "${element.url}" alt = "${element.alt}"  width = "320" /></li>`,
-    `<li><img src = "${element.url}" alt = "${element.alt}"  width = "320" /></li>`,
-  );
-});
-
-// В задании 3 вы добавляете в разметку по одному ли, а нужно вставить разметку из всех ли за одну операцию.
+// images.map(element => {
+//   itemGalleryEl.insertAdjacentHTML(
+//     'afterbegin',
+//     `<li><img src = "${element.url}" alt = "${element.alt}"  width = "320" /></li>`,
+//   );
+// });
+// ======================================================================
 // const makeGalleryImage = images.map(({ url, alt }) => {
 //   const itemEl = document.createElement('li');
 //   itemEl.classList.add('gallery-item');

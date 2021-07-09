@@ -20,7 +20,7 @@ const ingredients = [
 ];
 
 const listRef = document.querySelector('#ingredients');
-// listRef = parent
+listRef = parent;
 const listOfItem = (array, parent) => {
   const listItemRef = array.map(element => {
     const listItemRef = document.createElement('li');
